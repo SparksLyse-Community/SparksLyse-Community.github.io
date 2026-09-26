@@ -1,23 +1,42 @@
 ---
-import LiveImage from "../components/LiveImage";
+import TrainingDashboard from "../components/TrainingDashboard";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout
-  title="L'Entraînement en temps réel"
-  description="De SparksLyse, quand l'IA rencontre l'Open-Source"
+  title="Centre de Contrôle & Entraînement en Temps Réel - SparksLyse"
+  description="Suivez en direct l'entraînement des modèles open-source de SparksLyse, l'évolution de la loss, et les flux de télémétrie de nos clusters de calcul."
 >
-  <main class="items-center text-center text-white" >
-    <div
-      style="
-        height: 80%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        "
-    >
-      <LiveImage imageUrl="https://marvideo.fr/lyseai-api/status.php" alt="Entrainement en temps reel" client:load />
+  <main class="min-h-screen px-4 py-12 sm:px-6 lg:px-8 text-white relative overflow-hidden">
+    <!-- Hero / Intro Section -->
+    <div class="mx-auto max-w-4xl text-center mb-10 relative z-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#e8ff9c]/10 border border-[#e8ff9c]/20 text-[#e8ff9c] text-xs font-mono mb-4">
+        <span class="w-2 h-2 rounded-full bg-[#e8ff9c] animate-pulse"></span>
+        <span>Open-Source AI Telemetry</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-4">
+        Centre de Contrôle & <span class="text-[#e8ff9c]">Entraînement Live</span>
+      </h1>
+      <p class="text-zinc-400 text-sm sm:text-base max-w-2xl mx-auto">
+        Plongez au cœur des clusters de calcul de SparksLyse. Visualisez en temps réel l'avancement des poids, les courbes de loss, les métriques GPU et les logs de nos modèles open-source.
+      </p>
+    </div>
+
+    <!-- Dashboard Component -->
+    <div class="mx-auto max-w-6xl relative z-10">
+      <TrainingDashboard 
+        imageUrl="https://marvideo.fr/lyseai-api/status.php" 
+        alt="Centre d'entraînement LyseAI en temps réel" 
+        client:load 
+      />
+    </div>
+
+    <!-- Bottom Info / Transparency Note -->
+    <div class="mx-auto max-w-3xl mt-12 p-6 rounded-2xl bg-[#141414]/90 border border-white/10 text-center text-xs text-zinc-400 relative z-10 backdrop-blur-md">
+      <p class="font-medium text-zinc-300 mb-1">Transparence & Open-Source</p>
+      <p>
+        Chez SparksLyse, chaque étape d'entraînement est transparente. Ce tableau de bord se connecte directement à nos daemons de calcul pour vous offrir une visibilité totale sur l'évolution de nos modèles.
+      </p>
     </div>
   </main>
 </Layout>
