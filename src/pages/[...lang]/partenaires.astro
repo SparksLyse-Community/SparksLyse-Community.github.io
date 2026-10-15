@@ -1,0 +1,128 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import projectImage from "../../assets/images/about3.jpg";
+import {
+	languages,
+	defaultLang,
+	useTranslations,
+	type Lang,
+} from "../../i18n/ui";
+
+export function getStaticPaths() {
+	return [{ params: { lang: "fr" } }, { params: { lang: "en" } }];
+}
+
+const { lang: langParam } = Astro.params;
+const lang = (
+	langParam && langParam in languages ? langParam : defaultLang
+) as Lang;
+
+const t = useTranslations(lang);
+---
+
+<Layout title={t("partenaires.title")} description={t("partenaires.desc")}>
+	<main class="text-white">
+		<section
+			class="mx-auto grid min-h-[72svh] w-full max-w-7xl items-center gap-10 px-6 py-16 md:px-10 md:py-24 lg:grid-cols-[1fr_0.9fr] lg:gap-16 lg:px-16"
+		>
+			<div>
+				<p class="mb-5 text-xs uppercase tracking-[0.18em] text-[#e8ff9c]">
+					{t("partenaires.eyebrow")}
+				</p>
+				<h1 class="max-w-2xl text-4xl font-normal leading-[1.08] sm:text-5xl">
+					{t("partenaires.mainTitle")}
+				</h1>
+				<p class="mt-6 max-w-xl text-sm leading-7 text-white/60 sm:text-base">
+					{t("partenaires.mainDesc")}
+				</p>
+				<div class="mt-8 flex flex-wrap gap-3">
+					<a
+						href="https://discord.gg/QcNP62byDt"
+						target="_blank"
+						rel="noreferrer"
+						class="inline-flex min-h-11 items-center bg-[#e8ff9c] px-5 text-sm font-medium text-black transition hover:opacity-90"
+					>
+						{t("partenaires.contactAction")}
+					</a>
+					<a
+						href="https://github.com/SparksLyse-Community"
+						target="_blank"
+						rel="noreferrer"
+						class="inline-flex min-h-11 items-center border border-white/20 px-5 text-sm text-white transition hover:bg-white/10"
+					>
+						{t("partenaires.githubAction")}
+					</a>
+				</div>
+			</div>
+
+			<figure class="relative min-h-72 overflow-hidden rounded-md border border-white/10 sm:min-h-96">
+				<img
+					src={projectImage.src}
+					alt={t("partenaires.imageAlt")}
+					class="absolute inset-0 h-full w-full object-cover"
+					loading="eager"
+				/>
+				<figcaption class="absolute inset-x-0 bottom-0 bg-black/70 px-5 py-4 text-xs text-white/70 backdrop-blur-sm">
+					{t("partenaires.imageCaption")}
+				</figcaption>
+			</figure>
+		</section>
+
+		<section
+			class="mx-auto w-full max-w-7xl px-6 pb-24 md:px-10 lg:px-16"
+			aria-labelledby="partner-list"
+		>
+			<div class="border-t border-white/10 pt-7">
+				<p class="mb-3 text-xs uppercase tracking-[0.18em] text-white/45">
+					{t("partenaires.listEyebrow")}
+				</p>
+				<h2 id="partner-list" class="text-2xl font-normal sm:text-3xl">
+					{t("partenaires.listTitle")}
+				</h2>
+				<div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+					<article class="flex min-h-64 flex-col rounded-md border border-white/10 bg-white/[0.025] p-6 transition-colors hover:border-[#e8ff9c]/40 hover:bg-white/[0.045] sm:p-7">
+						<p class="text-xs uppercase tracking-[0.14em] text-[#e8ff9c]">
+							{t("partenaires.karmaCategory")}
+						</p>
+						<h3 class="mt-5 text-2xl font-semibold">KarmaCloud</h3>
+						<p class="mt-3 flex-1 text-sm leading-7 text-white/60">
+							{t("partenaires.karmaDescription")}
+						</p>
+						<a
+							href="https://gethost.cloud"
+							target="_blank"
+							rel="noreferrer"
+							class="mt-6 inline-flex w-fit items-center text-sm text-white underline decoration-white/25 underline-offset-4 transition hover:decoration-white"
+						>
+							{t("partenaires.visitPartner")}
+						</a>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section class="border-y border-white/10 bg-white/[0.03]">
+			<div class="mx-auto flex w-full max-w-7xl flex-col gap-6 px-6 py-12 md:px-10 md:py-16 lg:flex-row lg:items-end lg:justify-between lg:px-16">
+				<div>
+					<p class="mb-3 text-xs uppercase tracking-[0.18em] text-white/45">
+						SparksLyse Community
+					</p>
+					<h2 class="max-w-2xl text-2xl font-normal sm:text-3xl">
+						{t("partenaires.contactTitle")}
+					</h2>
+					<p class="mt-3 max-w-2xl text-sm leading-7 text-white/60">
+						{t("partenaires.contactText")}
+					</p>
+				</div>
+				<a
+					href="https://discord.gg/QcNP62byDt"
+					target="_blank"
+					rel="noreferrer"
+					class="inline-flex min-h-11 shrink-0 items-center border border-white/20 px-5 text-sm text-white transition hover:bg-white/10"
+				>
+					{t("partenaires.contactAction")}
+				</a>
+			</div>
+		</section>
+	</main>
+</Layout>
