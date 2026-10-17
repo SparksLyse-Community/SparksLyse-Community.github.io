@@ -24,6 +24,7 @@
     "index.supportCounterpartsText2euros": "A collector Tonyx card",
     "index.supportCounterpartsText10euros": "A unique role on our Discord server",
     "index.trynowText": "This AI is currently available for free; why not give it a try?",
+    "index.partners": "Parteners",
 
     "equipe.title": "Our team | SparksLyse",
     "equipe.desc": "Meet the community building SparksLyse, an open source AI.",
@@ -56,7 +57,7 @@
     "partenaires.listEyebrow": "Our partners",
     "partenaires.listTitle": "Supporting SparksLyse",
     "partenaires.karmaCategory": "Cloud hosting",
-    "partenaires.karmaDescription": "KarmaCloud provides high-performance cloud infrastructure, including VPS, game servers, AI models, and cloud databases.",
+    "partenaires.karmaDescription": "KarmaCloud provides high-performance cloud infrastructure, including VPS, game servers, AI models, and cloud databases. They are the official hosts for the AI ​​SparksLyse.",
     "partenaires.visitPartner": "Visit website",
     "partenaires.contactTitle": "Have a collaboration in mind?",
     "partenaires.contactText": "Tell us about your organization or project on Discord. We can discuss the possibilities and see whether a collaboration makes sense.",
@@ -79,7 +80,7 @@
     "chat.removeConv": "Clear conversation",
     "chat.privacyNote": "Messages are sent to the SparksLyse API to generate a response and are stored only within this interface.",
     "chat.privacyPolicy": "View privacy policy",
-    "chat.startMessage": "Hello 👋 I'm SparksLyse!",
+    "chat.startMessage": "Hello 👋! I'm SparksLyse!",
     "chat.resetConv": "Conversation reset.",
 
     "train.title": "Real-Time Training & Control Center - SparksLyse",

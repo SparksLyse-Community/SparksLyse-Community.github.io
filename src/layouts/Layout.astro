@@ -218,6 +218,13 @@ import { defaultLang, getLocalizedPath, languages, listLanguages, useTranslation
           </a>
 
           <a
+            href={`${import.meta.env.BASE_URL}${getLocalizedPath("/partenaires", lang)}`}
+            class="transition hover:text-white"
+          >
+            {t("index.partners")}
+          </a>
+
+          <a
             href={`${import.meta.env.BASE_URL}${getLocalizedPath("#soutien", lang)}`}
             class="transition hover:text-white"
           >

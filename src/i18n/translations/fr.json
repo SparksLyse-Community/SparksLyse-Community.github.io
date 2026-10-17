@@ -24,6 +24,7 @@
     "index.supportCounterpartsText2euros": "Une carte Tonyx collector",
     "index.supportCounterpartsText10euros": "Un rôle unique sur notre serveur Discord",
     "index.trynowText": "Cette IA est actuellement proposée gratuitement, pourquoi ne pas la tester ?",
+    "index.partners": "Partenaires",
 
     "equipe.title": "Notre équipe | SparksLyse",
     "equipe.desc": "Découvrez la communauté qui construit SparksLyse, une IA open source.",
@@ -56,7 +57,7 @@
     "partenaires.listEyebrow": "Nos partenaires",
     "partenaires.listTitle": "Ils accompagnent SparksLyse",
     "partenaires.karmaCategory": "Hébergement cloud",
-    "partenaires.karmaDescription": "KarmaCloud fournit une infrastructure cloud haute performance : VPS, serveurs de jeux, modèles IA et bases de données.",
+    "partenaires.karmaDescription": "KarmaCloud fournit une infrastructure cloud haute performance : VPS, serveurs de jeux, modèles IA et bases de données. Ils sont les hébergeurs officiels de l'IA SparksLyse.",
     "partenaires.visitPartner": "Visiter le site",
     "partenaires.contactTitle": "Vous avez une idée de collaboration ?",
     "partenaires.contactText": "Présentez-nous votre organisation ou votre projet sur Discord. Nous pourrons échanger sur les possibilités et voir si une collaboration a du sens.",
