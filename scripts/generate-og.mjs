@@ -1,6 +1,5 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 import satori from "satori";
 import { Resvg } from "@resvg/resvg-js";
 
@@ -71,18 +70,14 @@ function decodeHtmlEntities(text) {
     .replace(/&#39;/g, "'")
     .replace(/&apos;/g, "'")
     .replace(/&nbsp;/g, " ")
-    .replace(/&#(\d+);/g, (_, code) =>
-      String.fromCodePoint(Number(code)),
-    )
+    .replace(/&#(\d+);/g, (_, code) => String.fromCodePoint(Number(code)))
     .replace(/&#x([0-9a-f]+);/gi, (_, code) =>
       String.fromCodePoint(parseInt(code, 16)),
     );
 }
 
 function getMetadata(html) {
-  const titleMatch = html.match(
-    /<title[^>]*>([\s\S]*?)<\/title>/i,
-  );
+  const titleMatch = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
 
   const descriptionMatch =
     html.match(
@@ -96,9 +91,7 @@ function getMetadata(html) {
     titleMatch?.[1]?.replace(/<[^>]+>/g, "").trim() ?? "SparksLyse",
   );
 
-  const description = decodeHtmlEntities(
-    descriptionMatch?.[1]?.trim() ?? "",
-  );
+  const description = decodeHtmlEntities(descriptionMatch?.[1]?.trim() ?? "");
 
   return {
     title,
@@ -203,6 +196,24 @@ async function generateImage({
             props: {
               style: {
                 display: "flex",
+                justifyContent: "center",
+                fontSize: "30px",
+                fontWeight: 700,
+                background: "#10102a",
+                padding: "10px",
+                textAlign: "center",
+                border: "1px solid #fff",
+                borderRadius: "10px"
+              },
+              children: `${url.startsWith("/en/") ? "TRY FREE" : "ESSAYER GRATUITEMENT"}`,
+            },
+          },
+
+          {
+            type: "div",
+            props: {
+              style: {
+                display: "flex",
                 flexDirection: "row",
                 justifyContent: "space-between",
                 alignItems: "center",
@@ -222,7 +233,7 @@ async function generateImage({
                   },
                 },
 
-                {
+                /* {
                   type: "div",
                   props: {
                     style: {
@@ -230,7 +241,7 @@ async function generateImage({
                     },
                     children: "2026",
                   },
-                },
+                }, */
               ],
             },
           },
@@ -276,7 +287,8 @@ async function main() {
   for (const file of htmlFiles) {
     const url = getPageUrl(file);
 
-    if (url.startsWith("/og")) { //  || url.startsWith("/404")
+    if (url.startsWith("/og")) {
+      //  || url.startsWith("/404")
       continue;
     }
 
