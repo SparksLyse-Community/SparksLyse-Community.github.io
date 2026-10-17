@@ -22,10 +22,8 @@ const t = useTranslations(lang);
 ---
 
 <Layout title={t("chat.title")} description={t("chat.desc")}>
-  <main
-    class="mx-auto flex w-full max-w-300 flex-col px-6 pt-24 md:px-10 md:pt-32 lg:px-16"
-  >
-    <div class="mb-10">
+  <main class="chat-workspace mx-auto flex w-full max-w-300 flex-col px-6 py-12 md:px-10 md:py-16 lg:px-16">
+    <div class="chat-intro">
       <span
         class="mb-5 block text-xs uppercase tracking-[0.18em] text-white/45"
       >
@@ -45,8 +43,8 @@ const t = useTranslations(lang);
       />
     </div>
 
-    <div class="chat-shell-integrated">
-      <div class="chat-messages" id="chat-messages"></div>
+    <section class="chat-shell-integrated" aria-label={t("chat.title")}>
+      <div class="chat-messages" id="chat-messages" role="log" aria-live="polite" aria-relevant="additions text"></div>
 
       <div class="chat-composer">
         <form id="composer-form">
@@ -141,7 +139,7 @@ const t = useTranslations(lang);
                 </button>
               </div>
 
-              <button class="send-btn" id="send-btn" type="submit" disabled>
+              <button class="send-btn" id="send-btn" type="submit" aria-label={lang === "fr" ? "Envoyer le message" : "Send message"} disabled>
                 <span class="send-icon">
                   <svg
                     viewBox="0 0 24 24"
@@ -179,9 +177,9 @@ const t = useTranslations(lang);
           >.
         </p>
       </div>
-    </div>
+    </section>
   </main>
-  <div id="sparkslyse-config" data-welcome-message={t("chat.startMessage")} data-reset-conv={t("chat.resetConv")}>
+  <div id="sparkslyse-config" data-welcome-message={t("chat.startMessage")} data-reset-conv={t("chat.resetConv")} data-api-error={t("apiError")}>
   </div>
 </Layout>
 
@@ -394,35 +392,10 @@ const t = useTranslations(lang);
 
       const wrapper = document.createElement("div");
 
-      wrapper.className = "flex gap-3 max-w-full animate-fade-in";
-
-      if (role === "user") {
-        wrapper.classList.add("flex-row-reverse", "ml-auto");
-      }
+      wrapper.className = `msg ${role}`;
 
       const bubble = document.createElement("div");
-
-      bubble.className =
-        "message-bubble border border-white/10 rounded-[20px] p-3.5 px-4 " +
-        "text-[14.5px] leading-relaxed max-w-[620px]";
-
-      if (role === "user") {
-        bubble.classList.add(
-          "bg-white/[0.05]",
-          "border-white/20",
-          "text-white",
-          "rounded-tr-md",
-        );
-      } else if (role === "system") {
-        bubble.classList.add(
-          "bg-transparent",
-          "border-dashed",
-          "text-[#858585]",
-          "text-xs",
-        );
-      } else {
-        bubble.classList.add("bg-[#121212]", "rounded-tl-md");
-      }
+      bubble.className = "msg-bubble";
 
       const paragraph = document.createElement("p");
 
@@ -509,9 +482,7 @@ const t = useTranslations(lang);
       try {
         elements.messages?.appendChild(assistantElement);
 
-        const bubble = assistantElement.querySelector("div:nth-child(2)");
-
-        const paragraph = assistantElement.querySelector(".message-bubble p");
+        const paragraph = assistantElement.querySelector(".msg-bubble p");
 
         if (!paragraph) {
           throw new Error("Unable to create the chatbot response.");
@@ -536,15 +507,11 @@ const t = useTranslations(lang);
             ? error.message
             : "An unknown error has occurred.";
 
-        const bubble = assistantElement.querySelector("div:nth-child(2)");
+        const paragraph = assistantElement.querySelector(".msg-bubble p");
 
-        const paragraph = bubble?.querySelector("p");
-
-        if (!paragraph) {
-          throw new Error("Unable to create the chatbot response.");
+        if (paragraph) {
+          paragraph.textContent = `${config.apiError || "API Error"}: ${message}`;
         }
-
-        paragraph.innerHTML = `Unexpected client-side error : ${message}`;
       } finally {
         setSending(false);
         input.focus();
@@ -554,7 +521,7 @@ const t = useTranslations(lang);
     function addWelcomeMessage(): void {
       addMessage({
         role: "assistant",
-        content: config.welcomeMessage || "Hello 👋 I'm SparksLyse!",
+        content: config.welcomeMessage || "Hello 👋! I'm SparksLyse!",
       });
     }
 

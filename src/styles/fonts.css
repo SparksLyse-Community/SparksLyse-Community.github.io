@@ -204,7 +204,7 @@
 }
 @font-face {
   font-family: "Inter";
-  src: url("fonts/Inter6.woff2");
+  src: url("/fonts/Inter6.woff2");
   font-display: swap;
   font-style: normal;
   font-weight: 400;
