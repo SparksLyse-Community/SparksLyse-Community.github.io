@@ -88,7 +88,7 @@ function getMetadata(html) {
     );
 
   const title = decodeHtmlEntities(
-    titleMatch?.[1]?.replace(/<[^>]+>/g, "").trim() ?? "SparksLyse",
+    titleMatch?.[1]?.replace(/[<>]/g, "").trim() ?? "SparksLyse",
   );
 
   const description = decodeHtmlEntities(descriptionMatch?.[1]?.trim() ?? "");
