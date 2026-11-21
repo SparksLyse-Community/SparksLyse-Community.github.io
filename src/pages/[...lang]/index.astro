@@ -109,6 +109,12 @@ const benefits: { title: string; description: string; logo: number }[] = [
           chatUrl={`${import.meta.env.BASE_URL}${getLocalizedPath("chat", lang)}`}
           placeholder={t("index.heroQuestionPlaceholder")}
           submitLabel={t("index.heroQuestionSubmit")}
+          examples={[
+            t("index.heroExamples.prompt1"),
+            t("index.heroExamples.prompt2"),
+            t("index.heroExamples.prompt3"),
+            t("index.heroExamples.prompt4"),
+          ]}
         />
       </div>
 

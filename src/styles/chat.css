@@ -819,10 +819,11 @@ textarea {
 .chat-workspace {
   max-width: 1040px;
   align-items: center;
+  justify-content: center;
   gap: 24px;
-  min-height: calc(100dvh - 68px);
-  padding-top: 60px;
-  padding-bottom: clamp(32px, 6vh, 64px);
+  min-height: calc(100dvh - 4.5rem);
+  padding-top: 40px;
+  padding-bottom: 60px;
 }
 
 body:has(.chat-workspace) {
@@ -877,10 +878,11 @@ body:has(.chat-workspace) {
 @media (max-width: 800px) {
   .chat-workspace {
     align-items: stretch;
+    justify-content: center;
     gap: 22px;
-    min-height: 0;
-    padding-top: 24px;
-    padding-bottom: 42px;
+    min-height: calc(100dvh - 4.5rem);
+    padding-top: 32px;
+    padding-bottom: 48px;
   }
 
   .chat-workspace .chat-intro {
@@ -895,10 +897,12 @@ body:has(.chat-workspace) {
 
 @media (max-width: 640px) {
   .chat-workspace {
+    justify-content: center;
     gap: 18px;
+    min-height: calc(100dvh - 4.5rem);
     padding-inline: 18px;
-    padding-top: 20px;
-    padding-bottom: 36px;
+    padding-top: 24px;
+    padding-bottom: 40px;
   }
 
   .chat-shell-integrated {

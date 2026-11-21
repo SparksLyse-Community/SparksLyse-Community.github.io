@@ -26,6 +26,10 @@
     "index.trynowText": "Cette IA est actuellement proposée gratuitement, pourquoi ne pas la tester ?",
     "index.heroQuestionPlaceholder": "Posez une question à SparksLyse...",
     "index.heroQuestionSubmit": "Envoyer",
+    "index.heroExamples.prompt1": "Explique-moi la théorie de la relativité simplement",
+    "index.heroExamples.prompt2": "Écris une fonction en Python pour analyser des données",
+    "index.heroExamples.prompt3": "Donne-moi 5 idées de projets web open-source créatifs",
+    "index.heroExamples.prompt4": "Rédige un e-mail professionnel pour un partenariat",
     "index.partners": "Partenaires",
 
     "equipe.title": "Notre équipe | SparksLyse",
