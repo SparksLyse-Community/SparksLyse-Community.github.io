@@ -24,6 +24,12 @@
     "index.supportCounterpartsText2euros": "A collector Tonyx card",
     "index.supportCounterpartsText10euros": "A unique role on our Discord server",
     "index.trynowText": "This AI is currently available for free; why not give it a try?",
+    "index.heroQuestionPlaceholder": "Ask SparksLyse a question...",
+    "index.heroQuestionSubmit": "Send",
+    "index.heroExamples.prompt1": "Explain the theory of relativity simply",
+    "index.heroExamples.prompt2": "Write a Python function to parse JSON data",
+    "index.heroExamples.prompt3": "Give me 5 creative open-source web project ideas",
+    "index.heroExamples.prompt4": "Draft a professional email for a partnership",
     "index.partners": "Parteners",
 
     "equipe.title": "Our team | SparksLyse",

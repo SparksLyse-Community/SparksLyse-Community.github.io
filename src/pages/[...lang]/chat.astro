@@ -1139,6 +1139,19 @@ const t = useTranslations(lang);
       autoGrow();
 
       updateSendButtonState();
+
+      // Vérifie si une question a été passée dans l'URL (?q=...)
+      const urlParams = new URLSearchParams(window.location.search);
+      const initialQuery = urlParams.get("q");
+      if (initialQuery && elements.input) {
+        elements.input.value = initialQuery;
+        autoGrow();
+        updateSendButtonState();
+        // Nettoyer l'URL sans recharger la page
+        const cleanUrl = window.location.pathname;
+        window.history.replaceState({}, "", cleanUrl);
+        elements.form?.requestSubmit();
+      }
     }
 
     function updateSendButtonState(): void {

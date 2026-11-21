@@ -126,14 +126,6 @@ export default function Navbar({ lang }: { lang: Lang }) {
         </div>
 
         <Button
-          variant="button-red"
-          href={`${import.meta.env.BASE_URL}${getLocalizedPath("chat", lang)}`}
-          className="hidden xl:inline-flex"
-        >
-          {t("start")}
-        </Button>
-
-        <Button
           id="mobile-menu-button"
           type="button"
           size="lg"
@@ -236,14 +228,6 @@ export default function Navbar({ lang }: { lang: Lang }) {
             className="rounded-lg"
           >
             {t("comp_navbar.blog")}
-          </Button>
-
-          <Button
-            variant="button-red"
-            className="bg-[#dba0a0]/10! hover:bg-[#dba0a0]/20!"
-            href={`${import.meta.env.BASE_URL}${getLocalizedPath("chat", lang)}`}
-          >
-            {t("start")}
           </Button>
         </div>
       </motion.div>
