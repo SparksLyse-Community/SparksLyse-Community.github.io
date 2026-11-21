@@ -821,7 +821,8 @@ textarea {
   align-items: center;
   gap: 24px;
   min-height: calc(100dvh - 68px);
-  padding-block: clamp(32px, 6vh, 64px);
+  padding-top: 60px;
+  padding-bottom: clamp(32px, 6vh, 64px);
 }
 
 body:has(.chat-workspace) {
@@ -878,7 +879,8 @@ body:has(.chat-workspace) {
     align-items: stretch;
     gap: 22px;
     min-height: 0;
-    padding-block: 32px 42px;
+    padding-top: 24px;
+    padding-bottom: 42px;
   }
 
   .chat-workspace .chat-intro {
@@ -895,7 +897,8 @@ body:has(.chat-workspace) {
   .chat-workspace {
     gap: 18px;
     padding-inline: 18px;
-    padding-block: 30px 36px;
+    padding-top: 20px;
+    padding-bottom: 36px;
   }
 
   .chat-shell-integrated {
