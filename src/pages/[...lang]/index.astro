@@ -13,6 +13,7 @@ import headerImage from "../../assets/images/header.png";
 import Image from "astro/components/Image.astro";
 import AboutCards from "../../components/AboutCards";
 import Button from "@/components/ui/Button";
+import HeroPrompt from "@/components/HeroPrompt";
 import Contrepartie from "@/components/funding/Contrepartie";
 import Donateur from "@/components/funding/Donateur";
 
@@ -103,7 +104,12 @@ const benefits: { title: string; description: string; logo: number }[] = [
           />
         </div>
 
-        <Button variant="primary" href="#about">{t("start")}</Button>
+        <HeroPrompt
+          client:load
+          chatUrl={`${import.meta.env.BASE_URL}${getLocalizedPath("chat", lang)}`}
+          placeholder={t("index.heroQuestionPlaceholder")}
+          submitLabel={t("index.heroQuestionSubmit")}
+        />
       </div>
 
       <Button

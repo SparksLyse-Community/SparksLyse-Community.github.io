@@ -13,10 +13,10 @@
 
 html,
 body {
-  height: 100vh;
   margin: 0;
   width: 100%;
   scroll-behavior: smooth;
+  overscroll-behavior-y: none;
 }
 
 body {
