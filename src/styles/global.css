@@ -36,6 +36,12 @@ main {
   position: relative;
   isolation: isolate;
   width: 100%;
+  padding-top: 4.5rem;
+}
+
+#hero {
+  margin-top: -4.5rem;
+  padding-top: 4.5rem;
 }
 
 .legal-page {

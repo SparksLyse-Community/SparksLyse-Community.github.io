@@ -78,7 +78,9 @@ import { defaultLang, getLocalizedPath, languages, listLanguages, useTranslation
   </head>
 
   <body class="min-h-screen overflow-x-hidden bg-[#0a0a0a] text-white">
-    <Navbar lang={lang} client:load />
+    <div class="fixed top-0 left-0 right-0 z-60">
+      <Navbar lang={lang} client:load />
+    </div>
     <slot />
 
     <footer
