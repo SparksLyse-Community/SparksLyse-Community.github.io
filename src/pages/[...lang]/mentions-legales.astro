@@ -1,3 +1,4 @@
+
 ---
 import Layout from "../../layouts/Layout.astro";
 import {
@@ -8,15 +9,198 @@ import {
 } from "../../i18n/ui";
 
 export function getStaticPaths() {
-  return [{ params: { lang: "fr" } }, { params: { lang: "en" } }];
+  return [
+    { params: { lang: "fr" } },
+    { params: { lang: "en" } },
+  ];
 }
 
 const { lang: langParam } = Astro.params;
+
 const lang = (
   langParam && langParam in languages ? langParam : defaultLang
 ) as Lang;
 
 const t = useTranslations(lang);
+
+const content = {
+  fr: {
+    eyebrow: "INFORMATIONS JURIDIQUES",
+    title: "Mentions légales",
+    description:
+      "Informations légales relatives à Sparkslyse Community et à ses services.",
+
+    publisher: "Éditeur du site",
+    publisherText:
+      "Le présent site est édité par Sparkslyse Community, une communauté indépendante dédiée au développement et au partage de projets open source.",
+    publisherDetails: [
+      ["Organisation", "Sparkslyse Community"],
+      ["Responsable", "Tonyx"],
+      ["Directeur de la publication", "Tonyx"],
+      ["Adresse e-mail", "sparkslyse@marvideo.fr"],
+      ["Statut", "Communauté indépendante non constituée en association ou en société"],
+    ],
+
+    hosting: "Hébergement du site",
+    hostingText:
+      "Le site internet est hébergé par GitHub Pages.",
+    hostingDetails: [
+      ["Hébergeur", "GitHub, Inc."],
+      [
+        "Adresse",
+        "88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis",
+      ],
+      ["Site web", "https://pages.github.com/"],
+    ],
+
+    aiHosting: "Hébergement du modèle d'intelligence artificielle",
+    aiHostingText:
+      "Les fonctionnalités d'intelligence artificielle proposées par Sparkslyse Community reposent sur un modèle hébergé et exécuté via KarmaCloud.",
+    aiHostingDetails: [
+      ["Prestataire", "KarmaCloud"],
+      ["Fonction", "Hébergement et exécution du modèle d'intelligence artificielle"],
+      ["Données transmises", "Messages textuels saisis par les utilisateurs"],
+    ],
+
+    intellectual: "Propriété intellectuelle",
+    intellectualText:
+      "Les projets open source développés et publiés par Sparkslyse Community sont distribués sous la licence Apache License 2.0, sauf indication contraire dans le dépôt ou le projet concerné.",
+    intellectualText2:
+      "Cette licence autorise notamment l'utilisation, la reproduction, la modification et la redistribution des logiciels, sous réserve du respect de ses conditions, notamment la conservation des mentions de droits d'auteur et des notices de licence applicables.",
+    intellectualLink: "Consulter la licence Apache 2.0",
+
+    aiContent: "Contenus générés par l'intelligence artificielle",
+    aiContentText:
+      "Les réponses générées par le modèle d'intelligence artificielle sont produites automatiquement à partir des messages transmis par les utilisateurs. La politique souhaitée par Sparkslyse Community est de permettre leur utilisation selon les principes de la licence Apache 2.0, dans la mesure où cette licence et la législation applicable le permettent.",
+    aiContentWarning:
+      "Les contenus générés automatiquement peuvent comporter des erreurs, des imprécisions ou des informations incomplètes. Les utilisateurs doivent vérifier les informations importantes.",
+
+    personalData: "Données personnelles",
+    personalDataText:
+      "Le site ne met pas en œuvre de dispositif volontaire de suivi publicitaire ou de mesure d'audience. Aucun formulaire de contact ou système de création de compte n'est proposé sur le site.",
+    personalDataText2:
+      "Les fonctionnalités d'intelligence artificielle permettent aux utilisateurs de transmettre des messages textuels au modèle hébergé via KarmaCloud. Ces messages sont transmis au prestataire afin de permettre le traitement des demandes.",
+    personalDataText3:
+      "Selon les informations communiquées par l'éditeur, les conversations ne sont pas conservées. Cette information reste soumise aux modalités techniques et contractuelles effectivement appliquées par KarmaCloud.",
+    personalDataText4:
+      "Les messages transmis peuvent contenir des données personnelles. Il est recommandé de ne pas communiquer d'informations sensibles, confidentielles ou permettant d'identifier inutilement une personne.",
+    contactPrivacy:
+      "Pour toute question relative aux données personnelles, vous pouvez contacter l'éditeur à l'adresse suivante :",
+
+    cookies: "Cookies et traceurs",
+    cookiesText:
+      "Le site n'utilise volontairement aucun cookie publicitaire, outil de suivi analytique ou mécanisme de stockage local déclaré. Les éventuels traitements techniques nécessaires à la fourniture du service par les prestataires d'hébergement restent soumis à leurs propres politiques.",
+
+    external: "Liens externes",
+    externalText:
+      "Le site peut proposer des liens vers des plateformes et services tiers. Ces services disposent de leurs propres conditions d'utilisation et politiques de confidentialité. Sparkslyse Community n'exerce aucun contrôle sur leurs pratiques.",
+    platforms: "Plateformes officielles",
+
+    responsibility: "Responsabilité",
+    responsibilityText:
+      "Sparkslyse Community s'efforce de proposer des informations et des services fiables. Toutefois, aucune garantie n'est apportée quant à l'exactitude, l'exhaustivité ou la disponibilité permanente des contenus et fonctionnalités.",
+    responsibilityText2:
+      "L'éditeur ne saurait être tenu responsable des dommages résultant d'une utilisation inappropriée des informations ou contenus disponibles sur le site, dans les limites autorisées par la législation applicable.",
+
+    applicableLaw: "Droit applicable",
+    applicableLawText:
+      "Les présentes mentions légales sont soumises au droit français, sous réserve des dispositions impératives applicables. Tout différend sera traité conformément aux règles de compétence juridictionnelle en vigueur.",
+
+    lastUpdate: "Dernière mise à jour",
+    updateDate: "21 novembre 2026",
+    email: "Nous contacter",
+    back: "Retour à l'accueil",
+  },
+
+  en: {
+    eyebrow: "LEGAL INFORMATION",
+    title: "Legal Notice",
+    description:
+      "Legal information concerning Sparkslyse Community and its services.",
+
+    publisher: "Website Publisher",
+    publisherText:
+      "This website is published by Sparkslyse Community, an independent community dedicated to developing and sharing open-source projects.",
+    publisherDetails: [
+      ["Organization", "Sparkslyse Community"],
+      ["Project Lead", "Tonyx"],
+      ["Publication Director", "Tonyx"],
+      ["Email Address", "sparkslyse@marvideo.fr"],
+      ["Status", "Independent community not incorporated as an association or company"],
+    ],
+
+    hosting: "Website Hosting",
+    hostingText: "This website is hosted using GitHub Pages.",
+    hostingDetails: [
+      ["Hosting Provider", "GitHub, Inc."],
+      [
+        "Address",
+        "88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA",
+      ],
+      ["Website", "https://pages.github.com/"],
+    ],
+
+    aiHosting: "Artificial Intelligence Model Hosting",
+    aiHostingText:
+      "The artificial intelligence features provided by Sparkslyse Community rely on a model hosted and operated through KarmaCloud.",
+    aiHostingDetails: [
+      ["Provider", "KarmaCloud"],
+      ["Purpose", "Hosting and running the artificial intelligence model"],
+      ["Data Transmitted", "Text messages submitted by users"],
+    ],
+
+    intellectual: "Intellectual Property",
+    intellectualText:
+      "Open-source projects developed and published by Sparkslyse Community are distributed under the Apache License 2.0, unless otherwise specified in the relevant repository or project.",
+    intellectualText2:
+      "This license permits, among other things, the use, reproduction, modification and redistribution of software, subject to its terms, including the preservation of applicable copyright notices and license notices.",
+    intellectualLink: "View Apache License 2.0",
+
+    aiContent: "AI-Generated Content",
+    aiContentText:
+      "Responses generated by the artificial intelligence model are automatically produced based on messages submitted by users. Sparkslyse Community intends to allow their use under the principles of the Apache License 2.0, to the extent permitted by that license and applicable law.",
+    aiContentWarning:
+      "Automatically generated content may contain errors, inaccuracies or incomplete information. Users should verify important information.",
+
+    personalData: "Personal Data",
+    personalDataText:
+      "The website does not intentionally implement advertising tracking or audience measurement systems. No contact form or account creation system is provided on the website.",
+    personalDataText2:
+      "The artificial intelligence features allow users to submit text messages to the model hosted through KarmaCloud. These messages are transmitted to the provider so that requests can be processed.",
+    personalDataText3:
+      "According to information provided by the publisher, conversations are not retained. This statement remains subject to the actual technical and contractual practices applied by KarmaCloud.",
+    personalDataText4:
+      "Submitted messages may contain personal data. Users are advised not to provide sensitive, confidential or unnecessarily identifying information.",
+    contactPrivacy:
+      "For any questions regarding personal data, you can contact the publisher at:",
+
+    cookies: "Cookies and Trackers",
+    cookiesText:
+      "The website does not intentionally use advertising cookies, analytics tracking tools or declared local storage mechanisms. Any technical processing necessary for service delivery by hosting providers remains subject to their own policies.",
+
+    external: "External Links",
+    externalText:
+      "The website may provide links to third-party platforms and services. These services have their own terms of use and privacy policies. Sparkslyse Community has no control over their practices.",
+    platforms: "Official Platforms",
+
+    responsibility: "Liability",
+    responsibilityText:
+      "Sparkslyse Community makes reasonable efforts to provide reliable information and services. However, no guarantee is given regarding the accuracy, completeness or continuous availability of the content and features.",
+    responsibilityText2:
+      "The publisher cannot be held liable for damages resulting from inappropriate use of information or content available on the website, to the extent permitted by applicable law.",
+
+    applicableLaw: "Applicable Law",
+    applicableLawText:
+      "This legal notice is governed by French law, subject to mandatory applicable provisions. Any dispute shall be handled in accordance with the applicable jurisdiction rules.",
+
+    lastUpdate: "Last updated",
+    updateDate: "November 21, 2026",
+    email: "Contact us",
+    back: "Back to homepage",
+  },
+};
+
+const c = content[lang];
 ---
 
 <Layout
@@ -25,45 +209,158 @@ const t = useTranslations(lang);
 >
   <main class="legal-page">
     <article class="legal-content">
-      <p class="legal-eyebrow">Legal Information</p>
-      <h1>Legal Notice</h1>
-      <p class="legal-lead">
-        The information below must be completed by the publisher before the site
-        goes live.
-      </p>
+      <header class="legal-header">
+        <p class="legal-eyebrow">{c.eyebrow}</p>
+        <h1>{c.title}</h1>
+        <p class="legal-lead">{c.description}</p>
+      </header>
 
-      <h2>Site Publisher</h2>
-      <dl>
-        <dt>Full Name</dt><dd>[TO BE COMPLETED]</dd>
-        <dt>Address</dt><dd>[TO BE COMPLETED]</dd>
-        <dt>Contact Email</dt><dd>[TO BE COMPLETED]</dd>
-        <dt>Telephone</dt><dd>[TO BE COMPLETED OR "not disclosed"]</dd>
-        <dt>Publication Director</dt><dd>[TO BE COMPLETED]</dd>
-      </dl>
-      <p>
-        The site is currently declared as being published by an individual. If
-        the status changes to a professional activity, this section must be
-        replaced with the corresponding legal information.
-      </p>
+      <section>
+        <h2>01. {c.publisher}</h2>
+        <p>{c.publisherText}</p>
 
-      <h2>Hosting</h2>
-      <p>
-        The site is hosted via GitHub Pages. The host's legal details and
-        telephone number must be verified against the hosting terms and
-        conditions and filled in here:
-      </p>
-      <dl>
-        <dt>Host</dt><dd>GitHub, Inc. [TO BE CONFIRMED]</dd>
-        <dt>Address</dt><dd>[TO BE COMPLETED]</dd>
-        <dt>Telephone</dt><dd>[TO BE COMPLETED]</dd>
-      </dl>
+        <dl>
+          {c.publisherDetails.map(([label, value]) => (
+            <>
+              <dt>{label}</dt>
+              <dd>{value}</dd>
+            </>
+          ))}
+        </dl>
+      </section>
 
-      <h2>Intellectual Property</h2>
-      <p>
-        Site content—including text, interfaces, logos, and graphic elements—may
-        only be published if the publisher holds the necessary rights. Any
-        unauthorized reuse may result in liability for the person responsible.
-      </p>
+      <section>
+        <h2>02. {c.hosting}</h2>
+        <p>{c.hostingText}</p>
+
+        <dl>
+          {c.hostingDetails.map(([label, value]) => (
+            <>
+              <dt>{label}</dt>
+              <dd>
+                {value.startsWith("https://") ? (
+                  <a href={value} target="_blank" rel="noopener noreferrer">
+                    {value}
+                  </a>
+                ) : (
+                  value
+                )}
+              </dd>
+            </>
+          ))}
+        </dl>
+      </section>
+
+      <section>
+        <h2>03. {c.aiHosting}</h2>
+        <p>{c.aiHostingText}</p>
+
+        <dl>
+          {c.aiHostingDetails.map(([label, value]) => (
+            <>
+              <dt>{label}</dt>
+              <dd>{value}</dd>
+            </>
+          ))}
+        </dl>
+      </section>
+
+      <section>
+        <h2>04. {c.intellectual}</h2>
+        <p>{c.intellectualText}</p>
+        <p>{c.intellectualText2}</p>
+        <p>
+          <a
+            href="https://www.apache.org/licenses/LICENSE-2.0"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {c.intellectualLink}
+          </a>
+        </p>
+      </section>
+
+      <section>
+        <h2>05. {c.aiContent}</h2>
+        <p>{c.aiContentText}</p>
+        <p>{c.aiContentWarning}</p>
+      </section>
+
+      <section>
+        <h2>06. {c.personalData}</h2>
+        <p>{c.personalDataText}</p>
+        <p>{c.personalDataText2}</p>
+        <p>{c.personalDataText3}</p>
+        <p>{c.personalDataText4}</p>
+        <p>{c.contactPrivacy}</p>
+        <p>
+          <a href="mailto:sparkslyse@marvideo.fr">
+            sparkslyse@marvideo.fr
+          </a>
+        </p>
+      </section>
+
+      <section>
+        <h2>07. {c.cookies}</h2>
+        <p>{c.cookiesText}</p>
+      </section>
+
+      <section>
+        <h2>08. {c.external}</h2>
+        <p>{c.externalText}</p>
+
+        <h3>{c.platforms}</h3>
+
+        <ul class="legal-links">
+          <li>
+            <a
+              href="https://github.com/SparksLyse-Community"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://discord.gg/jyDzg5F9Uj"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Discord
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://huggingface.co/SparksLyse-Community"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Hugging Face
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>09. {c.responsibility}</h2>
+        <p>{c.responsibilityText}</p>
+        <p>{c.responsibilityText2}</p>
+      </section>
+
+      <section>
+        <h2>10. {c.applicableLaw}</h2>
+        <p>{c.applicableLawText}</p>
+      </section>
+
+      <footer class="legal-footer">
+        <p>
+          {c.lastUpdate} : {c.updateDate}
+        </p>
+        <a href="mailto:sparkslyse@marvideo.fr">
+          {c.email}
+        </a>
+      </footer>
     </article>
   </main>
 </Layout>
